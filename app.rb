@@ -1,7 +1,7 @@
-Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
-
 require("bundler/setup")
 Bundler.require(:default)
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+
 
 get('/') do
   @brands = Brand.all()
@@ -25,5 +25,25 @@ patch("/brands/:id") do
   @brand = Brand.find(params.fetch("id").to_i())
   @brand.update({:name => name})
   @brands = Brand.all()
+  erb(:index)
+end
+
+post('/stores') do
+  name = params.fetch('name')
+  @store = Brand.new({:name => name})
+  @store.save()
+  erb(:success)
+end
+
+get('/stores/:id/edit') do
+  @store = Store.find(params.fetch("id").to_i())
+  erb(:store_edit)
+end
+
+patch("/stores/:id") do
+  name = params.fetch("name")
+  @store = Store.find(params.fetch("id").to_i())
+  @store.update({:name => name})
+  @stores = Store.all()
   erb(:index)
 end

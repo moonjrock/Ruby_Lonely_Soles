@@ -7,6 +7,7 @@ gem("rake")
 gem("pg")
 
 group(:test) do
+  gem("pry")
   gem("rspec")
   gem("shoulda-matchers")
 end

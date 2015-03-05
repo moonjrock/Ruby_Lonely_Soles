@@ -1,14 +1,10 @@
 require("spec_helper")
 
 describe(Brand) do
-  it("tells which store the brand belongs to") do
-    store = Store.create({:name => "name"})
-    brand = Brand.create({:name => "name", :store_id => store.id})
-    expect(brand.store()).to(eq(store))
-  end
+  it { should have_and_belong_to_many(:stores) }
 
-  it("converts the name to lowercase") do
-    brand = Brand.create({:name => "NIKE"})
-    expect(brand.name()).to(eq("nike"))
+  it("validates the presence of a name") do
+    brand = Brand.new({:name => ""})
+    expect(brand.save()).to(eq(false))
   end
 end
