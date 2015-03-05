@@ -1,0 +1,7 @@
+<h1>Shoe Store</h1>
+
+<p>Here are all your brands:</p>
+
+<% @brands.each() do |brand| %>
+    <li><%= brand.name %> <a href="/brands/<%= brand.id() %>/edit">Update this brand name</a></li>
+<% end %>
