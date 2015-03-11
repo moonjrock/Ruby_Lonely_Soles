@@ -1,5 +1,5 @@
-<h1>Welcome to Shoe Game</h1>
-Shoe Game is your personal shoe store and brand listing source!
+<h1>Lonely Soles</h1>
+Lonely Soles is your personal shoe store and brand listing source!
 
 <h1>INSTRUCTIONS</h1>
 
